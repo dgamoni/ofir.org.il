@@ -45,3 +45,20 @@ function woo_rename_tabs( $tabs ) {
 	return $tabs;
 
 }
+
+add_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 15);
+add_action('wp_footer', 'add_custom_css');
+function add_custom_css() { ?>
+  <script>
+    jQuery(document).ready(function($) {
+      $('.product-summary .qty').change(function(event) {
+        //console.log( $(this).val() );
+        $('.product-summary .qty').val( $(this).val() );
+      });
+    });
+  </script>
+  <style>
+
+  </style>
+  <?php
+}
